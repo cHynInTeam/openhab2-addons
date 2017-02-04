@@ -95,9 +95,9 @@ public class OrviboDiscoveryService extends AbstractDiscoveryService implements 
     private DiscoveryResult createDiscoveryResult(OrviboDevice device) {
         ThingUID thingUID = getUID(device);
         String label = StringUtils.EMPTY;
-        if (device.getDeviceType() == DeviceType.SOCKET) {
+        if (DeviceType.SOCKET.equals(device.getDeviceType())) {
             label = "S20";
-        } else if (device.getDeviceType() == DeviceType.ALLONE) {
+        } else if (DeviceType.ALLONE.equals(device.getDeviceType())) {
             label = "AllOne";
         }
         return DiscoveryResultBuilder.create(thingUID).withLabel(label)
