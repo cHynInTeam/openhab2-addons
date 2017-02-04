@@ -9,7 +9,6 @@
 package org.openhab.binding.orvibo.internal.discovery;
 
 import java.net.SocketException;
-import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 
@@ -45,7 +44,7 @@ public class OrviboDiscoveryService extends AbstractDiscoveryService implements 
     }
 
     private static Set<ThingTypeUID> getSupportedThingTypeUIDs() {
-        return Collections.singleton(OrviboBindingConstants.THING_TYPE_S20);
+        return OrviboBindingConstants.SUPPORTED_THING_TYPES_UIDS;
     }
 
     @Override

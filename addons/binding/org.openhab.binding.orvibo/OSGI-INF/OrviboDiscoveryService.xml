@@ -9,8 +9,8 @@
     http://www.eclipse.org/legal/epl-v10.html
 
 -->
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.openhab.binding.orvibo.internal.discovery.SocketDiscoveryService">
-   <implementation class="org.openhab.binding.orvibo.internal.discovery.SocketDiscoveryService"/>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="org.openhab.binding.orvibo.internal.discovery.OrviboDiscoveryService">
+   <implementation class="org.openhab.binding.orvibo.internal.discovery.OrviboDiscoveryService"/>
    <service>
       <provide interface="org.eclipse.smarthome.config.discovery.DiscoveryService"/>
    </service>
