@@ -21,6 +21,7 @@ import org.eclipse.smarthome.core.thing.Thing;
 import org.eclipse.smarthome.core.thing.ThingStatus;
 import org.eclipse.smarthome.core.thing.binding.BaseThingHandler;
 import org.eclipse.smarthome.core.types.Command;
+import org.eclipse.smarthome.core.types.RefreshType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -68,7 +69,9 @@ public class S20Handler extends BaseThingHandler implements SocketStateListener 
 
     @Override
     public void handleCommand(ChannelUID channelUID, Command command) {
-        if (channelUID.getId().equals(CHANNEL_S20_SWITCH)) {
+        if (RefreshType.REFRESH.equals(command)) {
+            socket.subscribe();
+        } else if (channelUID.getId().equals(CHANNEL_S20_SWITCH)) {
             if (command == OnOffType.ON) {
                 socket.on();
             } else if (command == OnOffType.OFF) {
@@ -97,6 +100,7 @@ public class S20Handler extends BaseThingHandler implements SocketStateListener 
             logger.debug("Updating thing label to " + label);
             thing.setLabel(label);
         }
+        updateThingStatus();
     }
 
     @Override
@@ -109,11 +113,16 @@ public class S20Handler extends BaseThingHandler implements SocketStateListener 
                 updateState(CHANNEL_S20_SWITCH, OnOffType.OFF);
             }
         }
+        updateThingStatus();
     }
 
     @Override
     public void socketDidInitialisation(Socket socket) {
-        if (thing.getStatus() != ThingStatus.ONLINE) {
+        updateThingStatus();
+    }
+
+    public void updateThingStatus() {
+        if (!ThingStatus.ONLINE.equals(thing.getStatus())) {
             updateStatus(ThingStatus.ONLINE);
         }
     }
