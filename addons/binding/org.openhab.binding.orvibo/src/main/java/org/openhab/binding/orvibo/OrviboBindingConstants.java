@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2010-2017 by the respective copyright holders.
+ * Copyright (c) 2014-2016 by the respective copyright holders.
  *
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -7,6 +7,9 @@
  * http://www.eclipse.org/legal/epl-v10.html
  */
 package org.openhab.binding.orvibo;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import org.eclipse.smarthome.core.thing.ThingTypeUID;
 
@@ -22,11 +25,24 @@ public class OrviboBindingConstants {
 
     // List of all Thing Type UIDs
     public final static ThingTypeUID THING_TYPE_S20 = new ThingTypeUID(BINDING_ID, "s20");
+    public final static ThingTypeUID THING_TYPE_ALLONE = new ThingTypeUID(BINDING_ID, "allone");
+
+    public static final Set<ThingTypeUID> SUPPORTED_THING_TYPES_UIDS = new HashSet<>();
+
+    static {
+        SUPPORTED_THING_TYPES_UIDS.add(THING_TYPE_S20);
+        SUPPORTED_THING_TYPES_UIDS.add(THING_TYPE_ALLONE);
+    }
 
     // List of all Channel ids
     public final static String CHANNEL_S20_SWITCH = "power";
+    public final static String CHANNEL_ALLONE_LEARN = "learn";
+    public final static String CHANNEL_ALLONE_LEARN_NAME = "learnname";
+    public final static String CHANNEL_ALLONE_EMIT = "emit";
+    public final static String CHANNEL_ALLONE_EMIT_NAME = "emitname";
 
     // List of all Config properties
     public static final String CONFIG_PROPERTY_DEVICE_ID = "deviceId";
+    public final static String CONFIG_PROPERTY_ROOT = "rootFolder";
 
 }
