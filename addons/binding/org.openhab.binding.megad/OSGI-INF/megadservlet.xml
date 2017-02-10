@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" activate="activate" deactivate="deactivate" immediate="true" modified="modified" name="org.openhab.binding.megad.internal.MegaDServlet">
+   <implementation class="org.openhab.binding.megad.internal.MegaDServlet"/>
+   <reference bind="setHttpService" cardinality="1..1" interface="org.osgi.service.http.HttpService" name="HttpService" policy="dynamic" unbind="unsetHttpService"/>
+   <reference bind="setEventPublisher" cardinality="1..1" interface="org.eclipse.smarthome.core.events.EventPublisher" name="EventPublisher" policy="dynamic" unbind="unsetEventPublisher"/>
+   <reference bind="setThingRegistry" cardinality="1..1" interface="org.eclipse.smarthome.core.thing.ThingRegistry" name="ThingRegistry" policy="dynamic" unbind="unsetThingRegistry"/>
+   <service>
+      <provide interface="javax.servlet.Servlet"/>
+   </service>
+</scr:component>

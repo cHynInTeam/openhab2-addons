@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="megad" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0 http://eclipse.org/smarthome/schemas/thing-description-1.0.0.xsd">
+
+	<bridge-type id="MegaD-2561">
+		<label>MegaD-2561</label>
+
+		<channels>
+			<channel typeId="ADC" id="p36">
+				<label>P36</label>
+			</channel>
+			<channel typeId="ADC" id="p37">
+                <label>P36</label>
+            </channel>
+		</channels>
+
+		<config-description>
+			<parameter name="ip" type="text" required="true">
+				<label>IP address</label>
+				<default>192.168.0.14</default>
+			</parameter>
+			<parameter name="poolInterval" type="integer" required="true">
+				<label>Pool interval (seconds)</label>
+				<default>1</default>
+			</parameter>
+		</config-description>
+	</bridge-type>
+
+	<thing-type id="MegaD-7I7O-R">
+		<supported-bridge-type-refs>
+			<bridge-type-ref id="MegaD-2561" />
+		</supported-bridge-type-refs>
+
+		<label>MegaD-7I7O-R</label>
+
+		<channels>
+			<channel typeId="system.button" id="p0">
+				<label>P0</label>
+			</channel>
+			<channel typeId="system.button" id="p1">
+				<label>P1</label>
+			</channel>
+			<channel typeId="system.button" id="p2">
+				<label>P2</label>
+			</channel>
+			<channel typeId="system.button" id="p3">
+				<label>P3</label>
+			</channel>
+			<channel typeId="system.button" id="p4">
+				<label>P4</label>
+			</channel>
+			<channel typeId="system.button" id="p5">
+				<label>P5</label>
+			</channel>
+			<channel typeId="system.button" id="p6">
+				<label>P6</label>
+			</channel>
+
+			<channel typeId="Switch" id="p7">
+				<label>P7</label>
+			</channel>
+			<channel typeId="Switch" id="p8">
+				<label>P8</label>
+			</channel>
+			<channel typeId="Switch" id="p9">
+				<label>P9</label>
+			</channel>
+			<channel typeId="Switch" id="p10">
+				<label>P10</label>
+			</channel>
+			<channel typeId="Switch" id="p11">
+				<label>P11</label>
+			</channel>
+			<channel typeId="Switch" id="p12">
+				<label>P12</label>
+			</channel>
+			<channel typeId="Switch" id="p13">
+				<label>P13</label>
+			</channel>
+		</channels>
+	</thing-type>
+
+	<channel-type id="Switch">
+		<item-type>Switch</item-type>
+		<label>Switch</label>
+	</channel-type>
+
+	<channel-type id="ADC">
+		<item-type>Number</item-type>
+		<label>ADC</label>
+		<state min="0" max="1023" step="1" pattern="%d" readOnly="true">
+		</state>
+	</channel-type>
+
+</thing:thing-descriptions>
